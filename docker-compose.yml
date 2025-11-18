@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  wedding-website:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: erza-prili-wedding
+    ports:
+      - "8080:80"
+    restart: unless-stopped
+    labels:
+      - "com.docker.compose.project=wedding-invitation"
