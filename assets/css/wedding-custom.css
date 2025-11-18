@@ -5,7 +5,7 @@
 
 /* Override Background Image untuk Section "The Bride" */
 .elementor-element-ad4b237 {
-    background-image: url("foto1.jpeg") !important;
+    background-image: url("../images/foto2.jpeg") !important;
     background-size: cover !important;
     background-position: center center !important;
     background-repeat: no-repeat !important;

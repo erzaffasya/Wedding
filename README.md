@@ -1,11 +1,25 @@
-# Duplikat Website Undangan Pernikahan - Erza & Prili
+# Website Undangan Pernikahan - Erza & Prili
 
 Website ini adalah duplikat dari: **https://diundang.org/erzaprili/**
 
-## File
+## Struktur Folder
 
-- **index.html** - File HTML lengkap dengan semua CSS dan JavaScript inline
-- **BUKA-WEBSITE.bat** - Shortcut untuk membuka website
+```
+Wedding/
+├── assets/
+│   ├── css/
+│   │   └── wedding-custom.css    # Custom CSS untuk override
+│   └── images/
+│       └── foto1.jpeg             # Foto Prilita Amalia
+├── index.html                      # File HTML utama
+├── Dockerfile                      # Docker configuration
+├── docker-compose.yml              # Docker Compose setup
+├── nginx.conf                      # Nginx server config
+├── .dockerignore                   # Docker ignore file
+├── DEPLOY.md                       # Panduan deployment
+├── BUKA-WEBSITE.bat                # Windows shortcut
+└── README.md                       # Dokumentasi ini
+```
 
 ## Cara Menggunakan
 
@@ -13,15 +27,28 @@ Website ini adalah duplikat dari: **https://diundang.org/erzaprili/**
 1. Double-click **BUKA-WEBSITE.bat**, atau
 2. Double-click **index.html**
 
+### Buka Website Lokal (Development)
+```bash
+# Menggunakan Docker Compose
+docker-compose up -d
+
+# Akses di browser
+http://localhost:8081
+```
+
 ### Asset (Foto, Video, Musik)
-Semua asset menggunakan referensi langsung ke URL asli:
-- Foto: `https://diundang.org/wp-content/uploads/2025/11/...`
+Sebagian besar asset menggunakan referensi langsung ke URL asli:
+- Foto Gallery: `https://diundang.org/wp-content/uploads/2025/11/...`
 - Video: `https://diundang.org/wp-content/uploads/2025/11/...`
 - Musik: `https://diundang.org/wp-content/uploads/2025/11/...`
-- CSS: `https://diundang.org/wp-content/plugins/...`
+- CSS Library: `https://diundang.org/wp-content/plugins/...`
 - JavaScript: `https://diundang.org/wp-includes/js/...`
 
-**Catatan:** Butuh koneksi internet untuk menampilkan foto, video, dan memutar musik.
+**Custom Asset Lokal:**
+- ✅ Foto Prilita (The Bride): `assets/images/foto1.jpeg`
+- ✅ Custom CSS Override: `assets/css/wedding-custom.css`
+
+**Catatan:** Butuh koneksi internet untuk menampilkan foto gallery, video, dan memutar musik.
 
 ## Fitur Website
 
@@ -73,12 +100,41 @@ Website ini dibuat menggunakan:
 ✅ Edge
 ✅ Mobile Browsers
 
+## Deploy ke Production
+
+### Deploy ke Dokploy
+
+```bash
+# 1. Push ke GitHub
+git add .
+git commit -m "Update wedding website"
+git push origin main
+
+# 2. Di Dokploy Dashboard:
+# - Klik "New Application" → "Docker"
+# - Connect ke GitHub repository
+# - Set port: 80
+# - Deploy
+```
+
+Lihat **DEPLOY.md** untuk panduan lengkap deployment.
+
+## Kustomisasi
+
+### Mengganti Foto
+1. Letakkan foto di folder `assets/images/`
+2. Update path di `assets/css/wedding-custom.css`
+3. Rebuild Docker: `docker-compose up --build -d`
+
+### Menambah Custom CSS
+Edit file `assets/css/wedding-custom.css` untuk menambah styling custom.
+
 ## Catatan
 
-- Website ini adalah duplikat untuk keperluan backup/referensi
-- Semua asset (foto, CSS, JS) tetap menggunakan URL dari website asli
-- Diperlukan koneksi internet untuk menampilkan asset dengan sempurna
-- Untuk hosting independen, perlu download semua asset dan ubah path URL-nya
+- Website ini adalah duplikat untuk keperluan production deployment
+- Sebagian besar asset (foto, CSS, JS) menggunakan URL dari website asli
+- Custom foto dan styling disimpan di folder `assets/`
+- Diperlukan koneksi internet untuk menampilkan asset eksternal
 
 ---
 
