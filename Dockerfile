@@ -7,10 +7,12 @@ WORKDIR /usr/share/nginx/html
 # Hapus default nginx static assets
 RUN rm -rf ./*
 
-# Copy file HTML ke nginx directory
+# Copy file HTML, CSS, dan Images ke nginx directory
 COPY index.html .
+COPY wedding-custom.css .
+COPY foto1.jpeg .
 
-# Copy nginx configuration (jika ada)
+# Copy nginx configuration
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Expose port 80
