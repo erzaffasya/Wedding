@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:diundang.org)",
+      "Bash(curl -s \"https://diundang.org/erzaprili/\" -o \"C:\\Users\\mk.erza.fasya\\Documents\\Projek\\clonning\\original.html\")",
+      "Bash(wget:*)",
+      "Bash(curl:*)",
+      "Bash(del index.html styles.css script.js README.md original.html erzaprili_full.html)",
+      "Bash(original_full.html)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
